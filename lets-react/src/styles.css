@@ -1,0 +1,21 @@
+p {
+    font-size: 13px;
+}
+
+.category {
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+    background-color: lightslategray;
+}
+
+.instock {
+    font-size: 13px;
+    text-align: center;
+}
+
+.notinstock {
+    font-size: 13px;
+    text-align: center;
+    color: red;
+}
