@@ -1,0 +1,13 @@
+label {
+    font-weight: normal;
+    margin: 0;
+    display: block;
+}
+
+Button {
+    margin: 15px;
+}
+
+form {
+    width: 500px;
+}
