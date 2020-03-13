@@ -9,7 +9,7 @@ A WoMakersCode é uma comunidade brasileira, que tem como objetivo o empoderamen
 * [Aula 3 - Let's Input React](lets-input-react)
 * [Aula 4 - Let's Context Everything](lets-context-everything)
 * [Aula 5 - Let's Hook Up All](lets-hook-up-all)
-* [Studio Ghibli Challenge](studio-ghibli-challenge)
-* [To Do List Challenge](to-do-list-challenge)
+* [Aula 5 - Desafio: Studio Ghibli Challenge](studio-ghibli-challenge)
+* [Aula 5 - Desafio: To Do List Challenge](to-do-list-challenge)
 
 #### Para saber mais sobre a comunidade, acesse [www.womakerscode.org](https://www.womakerscode.org)
