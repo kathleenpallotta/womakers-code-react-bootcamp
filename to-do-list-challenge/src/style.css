@@ -1,0 +1,22 @@
+.app {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2em;
+}
+
+.to-do-form {
+    margin: 15px;
+}
+
+.list {
+    margin: 10px;
+}
+
+.list-container {
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: left;
+}
