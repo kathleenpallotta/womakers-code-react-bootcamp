@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans&display=swap');
+
+body {
+  margin: 0 auto;
+  background-color: #000000;
+}
+
+.homepage {
+  margin: 30px auto;
+  max-width: 600px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+img {
+  border-radius: 4%;
+}
+
+.titles {
+  font-size: 55px;
+  text-align: center;
+  color: #ffff00;
+  padding: 0;
+  margin: 0;
+  font-family: 'Crimson Text', serif;
+}
+
+.link-text {
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
