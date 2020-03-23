@@ -32,7 +32,7 @@ const Partners = () => (
                             </Card>
                         </a>
                     </List.Item>
-                    )} //renderItem
+                    )}
                 />
             </Col>
         </Row>
