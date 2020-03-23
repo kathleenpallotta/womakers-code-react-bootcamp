@@ -3,9 +3,8 @@ import { Avatar, List, Card, Col, Row } from 'antd';
 import data from './partners-list-test.json';
 
 let db = data;
-const {Meta} = Card
-
-const event = db[0]
+const {Meta} = Card;
+const event = db[0];
 db = db.splice(1, db.length);
 
 const Partners = () => (
