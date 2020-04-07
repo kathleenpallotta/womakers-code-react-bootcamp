@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import '~antd/dist/antd.css';
+
+.App {
+  text-align: center;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #000;
+  background-image: url(https://i.imgur.com/Jm53qFr.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 65vw;
+  background-color: #fff;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 6vh 0;
+  opacity: 0.95;
+}
