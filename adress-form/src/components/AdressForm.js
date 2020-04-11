@@ -16,26 +16,37 @@ const initialValues = {
 }
 
 const AdressForm = () => {
+    
     const onSubmit = values => {
-        console.log(values)
-    }
-
-    const handleCep = event => {
-        const cepDigitado = event.target.value
-        if (cepDigitado.length === 8) {
-            fetch(`http://viacep.com.br/ws/${event.target.value}/json/`)
-            .then(response => response.json())
-            .then(data => {
-                const { cep, logradouro, bairro, localidade, uf } = data
-                formik.setValues({ cep, logradouro, bairro, localidade, uf })
-            })
-        }
+        alert('Cadastro realizado com sucesso!')
+        console.log(values) 
     }
 
     const formik = useFormik({
         initialValues,
-        onSubmit,
+        onSubmit
     })
+
+    const handleCep = async event => {
+        const cepDigitado = event.target.value
+        if (cepDigitado.length === 8) {
+            await fetch(`http://viacep.com.br/ws/${event.target.value}/json/`)
+            .then(response => response.json())
+            .then(data => {
+                const { cep, logradouro, bairro, localidade, uf } = data
+                let colectedData = {cep, logradouro, bairro, localidade, uf}
+                formik.values = Object.assign(formik.values, colectedData)
+                let colectedDataValues = Object.values(colectedData)
+                colectedData = Object.keys(colectedData)
+                
+                for (let i = 0; i < colectedDataValues.length; i++) {
+                    if (colectedDataValues[i] !== undefined) {
+                        document.getElementById(`${colectedData[i]}`).value = colectedDataValues[i]
+                    }
+                }
+            })
+        }
+    }
 
     const layout = {
         labelCol: {
@@ -61,41 +72,60 @@ const AdressForm = () => {
         </Row>
         <Row>
             <Col span={16} offset={2}>
-                <Form {...layout} onFinish={formik.handleSubmit}>
-                    <Form.Item label="Nome" name="nome"  >
+                <Form {...layout} onFinish={formik.handleSubmit} >
+                    <Form.Item label="Nome completo" name="nome" 
+                    // rules={[{ required: true, message: 'Por favor, informe seu nome completo!' }]}
+                    >
                         <Input {...formik.getFieldProps("nome")} />
                     </Form.Item>
-                    <Form.Item label="Email" name="email"  >
-                        <Input {...formik.getFieldProps("email")}
-                        rules={
-                            {
-                              type: 'email',
-                              message: 'Email inválido!',
-                            }}
-                        />
+                    <Form.Item label="Email" name="email" 
+                    rules={
+                        [{
+                          type: 'email',
+                          message: 'Por favor, insforme um email válido!',
+                        }]}
+                    >
+                        <Input {...formik.getFieldProps("email")} />
                     </Form.Item>
-                    <Form.Item label="CPF" name="cpf"  >
-                        <Input {...formik.getFieldProps("cpf")} />
+                    <Form.Item label="CPF" name="cpf"
+                    // rules={[{ type: 'number' , message: 'Por favor, informe seu CPF!' }]} 
+                    extra="Informe apenas números*" >
+                        <Input maxLength={11} {...formik.getFieldProps("cpf")} />
                     </Form.Item>
-                    <Form.Item label="Telefone" name="telefone"  >
-                        <Input {...formik.getFieldProps("telefone")} />
+                    <Form.Item label="Telefone" name="telefone"
+                    extra="Informe apenas números*">
+                        <Input maxLength={11} {...formik.getFieldProps("telefone")} />
                     </Form.Item>
-                    <Form.Item label="CEP" name="cep"  >
-                        <Input onChange={handleCep} />
+                    <Form.Item label="CEP" name="cep"
+                    // rules={[{ required: true, message: 'Por favor, insforme seu CEP!' }]}
+                    extra="Informe apenas números*" >
+                        <Input maxLength={8} onChange={handleCep} />
                     </Form.Item>
-                    <Form.Item label="Logradouro" name="logradouro"  >
+                    <Form.Item label="Logradouro" name="logradouro" 
+                    // rules={[{ required: true, message: 'Por favor, insforme um endereço válido!' }]}
+                     >
                         <Input {...formik.getFieldProps("logradouro")} />
                     </Form.Item>
-                    <Form.Item label="Número" name="numero"  >
-                        <Input {...formik.getFieldProps("numero")} />
+
+                    <Form.Item label="Número" name="numero" 
+                    // rules={[{ required: true, message: 'Por favor, insforme um endereço válido!' }]} 
+                    >
+                        <Input maxLength={4} {...formik.getFieldProps("numero")} />
                     </Form.Item>
-                    <Form.Item label="Bairro" name="bairro" >
+
+                    <Form.Item label="Bairro" name="bairro"
+                    // rules={[{ required: true, message: 'Por favor, insforme um endereço válido!' }]} 
+                    >
                         <Input {...formik.getFieldProps("bairro")} />
                     </Form.Item>  
-                    <Form.Item label="Cidade" name="localidade" >
+                    <Form.Item label="Cidade" name="localidade"
+                    // rules={[{ required: true, message: 'Por favor, insforme um endereço válido!' }]}
+                    >
                         <Input {...formik.getFieldProps("localidade")} />
                     </Form.Item> 
-                    <Form.Item label="UF" name="uf"  >
+                    <Form.Item label="UF" name="uf"
+                    // rules={[{ required: true, message: 'Por favor, insforme um endereço válido!' }]} 
+                    >
                         <Input {...formik.getFieldProps("uf")} />
                     </Form.Item>
                      
